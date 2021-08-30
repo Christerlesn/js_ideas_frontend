@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     getIdeas()
 
 const createIdeaForm = document.querySelector("#create-idea-form")
+
 createIdeaForm.addEventListener("submit", (e) =>  createFormHandler(e))
 
 })
@@ -37,8 +38,7 @@ function createFormHandler(e){
     postFetch(titleInput, descriptionInput, categoryId)
 }
 
-function postFetch(title, description, category_id){
-    // console.log(title, description, category_id)
+function postFetch(title, description, category_id) {
     let bodyData = {title, description, category_id}
     fetch (endPoint, {
         method: "POST",
@@ -47,7 +47,7 @@ function postFetch(title, description, category_id){
     })
     .then(response => response.json())
     .then(idea => {
-        console.log(idea)
-        render(idea)
+        const ideaData = idea.data
+        render(ideaData)
     })
 }
