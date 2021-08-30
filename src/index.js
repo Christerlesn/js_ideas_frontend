@@ -50,4 +50,5 @@ function postFetch(title, description, category_id) {
         const ideaData = idea.data
         render(ideaData)
     })
+    document.getElementById("create-idea-form").reset();
 }
