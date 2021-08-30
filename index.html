@@ -7,6 +7,27 @@
     </head>
     <body>
         <div id="idea-container"></div>
+        <div class= "form-container">
+            <form id="create-idea-form">
+                <h3>Create an Idea!</h3>
+
+                <label for="categories">Select a Category:</label><br>
+                <!-- the category part will eventually be made in JS? -->
+                <select id= "categories" name="categories">
+                    <option value="1"> Social Media</option>
+                    <option value="2">Gaming</option>
+                    <option value="3">Entertainment</option>
+                </select>
+                <br><br>
+                <label for="input-title">Title:</label><br>
+                <input id= 'input-title' type='text' name='title' value='' placeholder="Enter the new idea's title">
+                <br><br>
+                <label for="input-description">Description:</label><br>
+                <textarea id='input-description' name='description' rows="8" cols="80" value='' placeholder="Tell us about your new idea" ></textarea>
+                <br><br>
+                <input id='create-button' type='submit' name='submit' value='Create New Idea' class="submit">
+            </form>
+        </div>
     </body>
 
 </html>
