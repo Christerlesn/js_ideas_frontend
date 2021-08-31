@@ -44,3 +44,24 @@ function postFetch(title, description, category_id) {
     })
     document.getElementById("create-idea-form").reset();
 }
+function randomIdeaByCategory(list){
+    //need to connect to an event and fetch request. Answer the following:
+    /* When a category button is clicked, I want to make a get request 
+    and return the singular, random, data. */
+    const res = [];
+    for (let x = 1; x <= list.length; x++){
+        const random = Math.floor(Math.random() * list.length);
+        res.push(list[random]);
+    }
+    // debugger
+    return res[0];
+    // renderIdeaCard(res)
+}
+   // or I could do
+    /*
+    function getRandomIdea(list)
+        let t = [...list].sort(() => Math.random() > 0.5 ? 1 : -1).slice(0, list.length)
+    }
+    video I watched for help:
+    https://www.youtube.com/watch?v=SYLD5qz7buQ&t=10s
+    */
