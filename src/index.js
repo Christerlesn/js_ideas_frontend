@@ -14,20 +14,11 @@ function getIdeas(){
     .then(response => response.json())
     .then(ideas => {
         ideas.data.forEach(idea => {
-        render(idea)
+            let newIdea = new Idea(idea, idea.attributes)
+        document.querySelector('#idea-container').innerHTML += newIdea.renderIdeaCard()
         })
     })
-}
-
-function render(idea){
-    const ideaMarkup = `
-    <div data-id= ${idea.id}>
-        <h3>${idea.attributes.title}</h3>
-        <p>${idea.attributes.description}</p>
-        <p>${idea.attributes.category.name}</p>
-    </div>
-        <br></br>`
-    document.querySelector('#idea-container').innerHTML += ideaMarkup
+    .catch(err => console.log(err)) //no idea how to test this.
 }
 
 function createFormHandler(e){
@@ -47,8 +38,9 @@ function postFetch(title, description, category_id) {
     })
     .then(response => response.json())
     .then(idea => {
-        const ideaData = idea.data
-        render(ideaData)
+        let ideaData = idea.data
+        let newIdea = new Idea(ideaData, ideaData.attributes)
+        document.querySelector('#idea-container').innerHTML += newIdea.renderIdeaCard()
     })
     document.getElementById("create-idea-form").reset();
 }
