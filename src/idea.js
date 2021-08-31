@@ -13,8 +13,11 @@ class Idea {
          <p>${this.description}</p>
          <p>${this.category.name}</p>
         </div>
-        <br><br>
-        `
+        <br><br>`
     }
+    static filterByCategory(category){
+        return this.all.filter(idea => idea.category.name === category);
+    }
+
 }
 Idea.all = []
