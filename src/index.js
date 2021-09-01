@@ -6,14 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
 const createIdeaForm = document.querySelector("#create-idea-form")
 createIdeaForm.addEventListener("submit", (e) =>  createFormHandler(e))
 
-let categoryBtn = document.getElementById("btn-social-media")
-categoryBtn.addEventListener("click", e => categoryButtonHandler(e));
-
-// let categoryBtn = document.getElementById("btn-social-media")
-// categoryBtn.addEventListener("click", function(){alert("click1 triggered")}, false);
+let categoryBtn = document.querySelector(".btn-category")
+categoryBtn.addEventListener("click", e => filterBtns(e))
 
 })
-// <div id="category-btns">
+
 function getIdeas(){
     fetch(endPoint)
     .then(response => response.json())
@@ -46,14 +43,22 @@ function postFetch(title, description, category_id) {
         let ideaData = idea.data
         let newIdea = new Idea(ideaData, ideaData.attributes)
         document.querySelector('#random-idea-container').innerHTML = newIdea.renderIdeaCard()
+        document.querySelector('#idea-container').innerHTML += newIdea.renderIdeaCard()
+
     })
     document.getElementById("create-idea-form").reset();
+
 }
 
-function categoryButtonHandler(e){
-    e.preventDefault()
-    const myElement = document.querySelector('#btn-social-media').innerText;
-    let filteredIdeas = Idea.filterByCategory(myElement)
+function filterBtns(e){
+    e.preventDefault(); 
+    if ((e.target) && e.target.nodeName == "BUTTON")
+    categoryButtonHandler(e.target.innerHTML)
+}
+
+function categoryButtonHandler(theInnerHTML){
+    // const myElement = document.querySelector('#btn-social-media').innerText;
+    let filteredIdeas = Idea.filterByCategory(theInnerHTML)
     randomIdeaByCategory(filteredIdeas)
 }
 
@@ -70,3 +75,7 @@ function randomIdeaByCategory(list){
     // return randomizedIdea
 
 }
+
+// let smb = "btn-social-media"
+// let t = document.getElementById("btn-social-media")
+// t.id === smb

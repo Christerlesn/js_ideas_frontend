@@ -11,7 +11,7 @@ class Idea {
         <div data-id= ${this.id}>
          <h3>${this.title}</h3>
          <p>${this.description}</p>
-         <p>${this.category.name}</p>
+         <h4>${this.category.name}</h4>
         </div>
         <br><br>`
     }
