@@ -1,25 +1,42 @@
-TO DO LIST:
+#RandomIdeaGenerator
+This is a Rails/Javascript project completed to meet Flatiron project requirements, in the process of becoming a software engineer.
 
-[] - Complete this task: When a category button is clicked, I want to make a get request and return the singular, random, data.
-    - Set up the buttons (in HTML?)
-    - Set up the div for the buttons in HTML `<div id="randomized-idea"></div>`
-    - Create the variable ` let categoryBtn = document.querySelector("#btn-category")`
-    - Followed by the event: `ideaFromCategory.addEventListener("click", e => { const idea = Idea.filterByCategory(e);                                  document.querySelector('#randomized-idea').innerHTML +=                     idea.randomIdeaByCategory(e)                                                                               }//this may be a bit wrong.`
-    - Then create an if statement depending on what the bnt says, to return a random idea based off the category button selected. Then return the get request or however it works.
+##Installation
 
-    [] - Start CSS design. 
-    - How I want it to look
-    ` |category|  |category| |category|
-    _____________random idea based off category title________________
-    __________________description_________________________
-    _________________category____________________________
+Add this line to your application's Gemfile:
+```javascript
+gem 'js_ideas_frontend'
+```
 
-    ALL IDEAS
-    idea1
-    idea2
-    idea3
-    (no particular order)
+And for the Backend
+```ruby on rails
+gem 'js_ideas_backend'
+```
 
-    Create a new Idea!
-    //form of the new idea goes here
-    `
+And then execute:
+
+    $ bundle
+
+Or install it yourself as:
+    Frontend:
+    $ gem install js_ideas_frontend
+    Backend:
+    $ gem install js_ideas_backend
+
+## For Backend
+
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+
+To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/Christerlesn/js_ideas_frontend. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+
+## License
+
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+## Code of Conduct
+
+Everyone interacting in the RandomIdeaGenerator project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct].
