@@ -5,12 +5,21 @@
         <title>Project Idea Generator</title>
         <script src="src/idea.js" charset="utf-8"></script>
         <script src="src/index.js" charset="utf-8"></script>
+        <link rel="stylesheet" href="style.css">
+        <h1> Idea Random Generator Website</h1>
     </head>
     <body>
-        <div id="idea-container"></div>
+        <div class="btn-category">
+            <button id='btn-social-media' type='button' style="margin:15px;" name='Social Media'>Social Media</button>
+            <button id='btn-gaming' type='button' style="margin:30px;" name='Gaming'>Gaming</button>
+            <button id='btn-entertainment' type='button' style="margin:45px;" name='Entertainment'>Entertainment</button>
+        </div>
+
+        <div id="random-idea-container"></div>
+
         <div class= "form-container">
             <form id="create-idea-form">
-                <h3>Create an Idea!</h3>
+                <h2>Create an Idea!</h2>
 
                 <label for="categories">Select a Category:</label><br>
                 <!-- the category part will eventually be made in JS? -->
@@ -28,7 +37,11 @@
                 <br><br>
                 <input id='create-button' type='submit' name='submit' value='Create New Idea' class="submit">
             </form>
-        </div>
+        </div><br>
+
+        <h2>All Ideas</h2>
+        <div id="idea-container"></div>
+
     </body>
 
 </html>

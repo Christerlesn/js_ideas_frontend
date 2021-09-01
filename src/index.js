@@ -4,11 +4,16 @@ document.addEventListener('DOMContentLoaded', () => {
     getIdeas()
 
 const createIdeaForm = document.querySelector("#create-idea-form")
-
 createIdeaForm.addEventListener("submit", (e) =>  createFormHandler(e))
 
-})
+let categoryBtn = document.getElementById("btn-social-media")
+categoryBtn.addEventListener("click", e => categoryButtonHandler(e));
 
+// let categoryBtn = document.getElementById("btn-social-media")
+// categoryBtn.addEventListener("click", function(){alert("click1 triggered")}, false);
+
+})
+// <div id="category-btns">
 function getIdeas(){
     fetch(endPoint)
     .then(response => response.json())
@@ -40,28 +45,28 @@ function postFetch(title, description, category_id) {
     .then(idea => {
         let ideaData = idea.data
         let newIdea = new Idea(ideaData, ideaData.attributes)
-        document.querySelector('#idea-container').innerHTML += newIdea.renderIdeaCard()
+        document.querySelector('#random-idea-container').innerHTML = newIdea.renderIdeaCard()
     })
     document.getElementById("create-idea-form").reset();
 }
+
+function categoryButtonHandler(e){
+    e.preventDefault()
+    const myElement = document.querySelector('#btn-social-media').innerText;
+    let filteredIdeas = Idea.filterByCategory(myElement)
+    randomIdeaByCategory(filteredIdeas)
+}
+
 function randomIdeaByCategory(list){
-    //need to connect to an event and fetch request. Answer the following:
-    /* When a category button is clicked, I want to make a get request 
-    and return the singular, random, data. */
     const res = [];
     for (let x = 1; x <= list.length; x++){
         const random = Math.floor(Math.random() * list.length);
         res.push(list[random]);
     }
-    // debugger
-    return res[0];
-    // renderIdeaCard(res)
+        let randomIdea = res[0];
+        document.querySelector('#random-idea-container').innerHTML = randomIdea.renderIdeaCard()
+    // different way. Harder to explain. More randomized.
+    // let randomizedIdea = [...list].sort(() => Math.random() > 0.5 ? 1 : -1)
+    // return randomizedIdea
+
 }
-   // or I could do
-    /*
-    function getRandomIdea(list)
-        let t = [...list].sort(() => Math.random() > 0.5 ? 1 : -1).slice(0, list.length)
-    }
-    video I watched for help:
-    https://www.youtube.com/watch?v=SYLD5qz7buQ&t=10s
-    */
