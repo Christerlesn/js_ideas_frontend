@@ -46,6 +46,7 @@ function postFetch(title, description, category_id) {
         document.querySelector('#idea-container').innerHTML += newIdea.renderIdeaCard()
 
     })
+    .catch(err => console.log(err))
     document.getElementById("create-idea-form").reset();
 
 }
