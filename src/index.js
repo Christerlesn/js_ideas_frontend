@@ -8,7 +8,6 @@ createIdeaForm.addEventListener("submit", (e) =>  createFormHandler(e))
 
 const categoryBtn = document.querySelector(".btn-category")
 categoryBtn.addEventListener("click", e => filterBtns(e))
-
 })
 
 function getIdeas(){
@@ -17,8 +16,22 @@ function getIdeas(){
     .then(ideas => {
         ideas.data.forEach(idea => {
             let newIdea = new Idea(idea, idea.attributes)
-        document.querySelector('#idea-container').innerHTML += newIdea.renderIdeaCard()
-        })
+        document.querySelector('#idea-container').insertAdjacentHTML("beforeend",newIdea.renderIdeaCard())
+
+        const getLike = document.querySelector('.like');
+        const getLikeNum = document.querySelector('.likeNum')  
+        // debugger
+
+        let like = 0;
+        function increaseLike(){
+            like++
+            getLikeNum.innerHTML = `${like}`
+        }
+        likeClick = () => {
+            increaseLike()
+        }
+        getLike.addEventListener(('click'), likeClick)
+    })
     })
     .catch(err => console.log(err))
 }
@@ -44,7 +57,6 @@ function postFetch(title, description, category_id) {
         let newIdea = new Idea(ideaData, ideaData.attributes)
         document.querySelector('#random-idea-container').innerHTML = newIdea.renderIdeaCard()
         document.querySelector('#idea-container').innerHTML += newIdea.renderIdeaCard()
-
     })
     .catch(() => alert("Please fill out the whole form."))
     document.getElementById("create-idea-form").reset();
