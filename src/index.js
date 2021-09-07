@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 const createIdeaForm = document.querySelector("#create-idea-form")
 createIdeaForm.addEventListener("submit", (e) =>  createFormHandler(e))
 
-let categoryBtn = document.querySelector(".btn-category")
+const categoryBtn = document.querySelector(".btn-category")
 categoryBtn.addEventListener("click", e => filterBtns(e))
 
 })
@@ -20,7 +20,7 @@ function getIdeas(){
         document.querySelector('#idea-container').innerHTML += newIdea.renderIdeaCard()
         })
     })
-    .catch(err => console.log(err)) //no idea how to test this.
+    .catch(err => console.log(err))
 }
 
 function createFormHandler(e){
@@ -58,7 +58,6 @@ function filterBtns(e){
 }
 
 function categoryButtonHandler(theInnerHTML){
-    // const myElement = document.querySelector('#btn-social-media').innerText;
     let filteredIdeas = Idea.filterByCategory(theInnerHTML)
     randomIdeaByCategory(filteredIdeas)
 }
@@ -76,7 +75,3 @@ function randomIdeaByCategory(list){
     // return randomizedIdea
 
 }
-
-// let smb = "btn-social-media"
-// let t = document.getElementById("btn-social-media")
-// t.id === smb
