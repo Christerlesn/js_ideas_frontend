@@ -8,7 +8,7 @@ class Idea {
     }
     renderIdeaCard(){
         return `
-        <div data-id= ${this.id}>
+        <div id= ${this.id}>
          <h3>${this.title}</h3>
          <p>${this.description}</p>
          <h4>${this.category.name}</h4>

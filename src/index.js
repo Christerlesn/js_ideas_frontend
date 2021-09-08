@@ -22,23 +22,27 @@ function getIdeas(){
         const getLikeNum = document.querySelector('.likeNum') 
             
             let like = 0;
-                function increaseLike(){
-                    like++
-                    getLikeNum.innerHTML = `${like}`
-                }
-        function likeClick(){
-                increaseLike()
-                // debugger
-                // const myElement = document.querySelector('.idea-container');
-                // for (let i = 0; i < myElement.children.length; i++) {
-                //     var child = myElement.children[i]
-                //     // debugger
-                //     if (child.querySelector('.like') === document.querySelectorAll('.like'))
-                //     increaseLike()
-                // }
-                // increaseLike()
+            function increaseLike(){
+                like++
+                getLikeNum.innerHTML = `${like}`
+            }
+        function likeClick(btn){
+            increaseLike()
+            // debugger
+            // const myElement = document.querySelector('.idea-container');
+            // for (let i = 0; i < myElement.children.length; i++) {
+            //     if (myElement.children[i] === btn ){
+            //         console.log("Please just work")
+            //         break;
+            //     }
+             //     var child = myElement.children[i]
+            //     // debugger
+            //     if (child.querySelector('.like') === document.querySelectorAll('.like'))
+            //     increaseLike()
+            // }
+            // increaseLike()
         }
-            btns.forEach(btn =>btn.addEventListener(('click'),likeClick))
+            btns.forEach(btn =>btn.addEventListener(('click'),btn => likeClick(btn)))
 
     })
     })
