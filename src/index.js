@@ -16,21 +16,30 @@ function getIdeas(){
     .then(ideas => {
         ideas.data.forEach(idea => {
             let newIdea = new Idea(idea, idea.attributes)
-        document.querySelector('#idea-container').insertAdjacentHTML("beforeend",newIdea.renderIdeaCard())
+            document.querySelector('.idea-container').insertAdjacentHTML("beforeend",newIdea.renderIdeaCard())
 
-        const getLike = document.querySelector('.like');
-        const getLikeNum = document.querySelector('.likeNum')  
-        // debugger
+        const btns = document.querySelectorAll('.like');
+        const getLikeNum = document.querySelector('.likeNum') 
+            
+            let like = 0;
+                function increaseLike(){
+                    like++
+                    getLikeNum.innerHTML = `${like}`
+                }
+        function likeClick(){
+                increaseLike()
+                // debugger
+                // const myElement = document.querySelector('.idea-container');
+                // for (let i = 0; i < myElement.children.length; i++) {
+                //     var child = myElement.children[i]
+                //     // debugger
+                //     if (child.querySelector('.like') === document.querySelectorAll('.like'))
+                //     increaseLike()
+                // }
+                // increaseLike()
+        }
+            btns.forEach(btn =>btn.addEventListener(('click'),likeClick))
 
-        let like = 0;
-        function increaseLike(){
-            like++
-            getLikeNum.innerHTML = `${like}`
-        }
-        likeClick = () => {
-            increaseLike()
-        }
-        getLike.addEventListener(('click'), likeClick)
     })
     })
     .catch(err => console.log(err))
@@ -56,7 +65,7 @@ function postFetch(title, description, category_id) {
         let ideaData = idea.data
         let newIdea = new Idea(ideaData, ideaData.attributes)
         document.querySelector('#random-idea-container').innerHTML = newIdea.renderIdeaCard()
-        document.querySelector('#idea-container').innerHTML += newIdea.renderIdeaCard()
+        document.querySelector('.idea-container').innerHTML += newIdea.renderIdeaCard()
     })
     .catch(() => alert("Please fill out the whole form."))
     document.getElementById("create-idea-form").reset();
