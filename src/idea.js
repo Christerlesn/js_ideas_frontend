@@ -12,10 +12,6 @@ class Idea {
          <h3>${this.title}</h3>
          <p>${this.description}</p>
          <h4>${this.category.name}</h4>
-         <div class= "btn-like">
-         <button class="like">Like</button> 
-         <p class="likeNum">0</p>
-        </div>
         </div>
         <br><br>`
     }
