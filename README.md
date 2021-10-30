@@ -1,5 +1,6 @@
 #RandomIdeaGenerator
-This is a Rails/Javascript project completed to meet Flatiron project requirements, in the process of becoming a software engineer.
+This is the frontend of a random idea generating website, where a user can add an idea, select the category, and generate a random idea make by themselves and others to be able to create a website. 
+#work still in progess, this is experimental.
 
 ##Installation
 
